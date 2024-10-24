@@ -1,5 +1,6 @@
 package com.hatio.todo.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.hatio.todo.models.ProjectModel;
 import jakarta.persistence.*;
 
@@ -27,17 +28,17 @@ public class TodoModel {
     private LocalDateTime updatedDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id", nullable = false) // Foreign key mapping to Project
-    private ProjectModel project; // Reference to the project to which this todo belongs
+    @JoinColumn(name = "project_id", nullable = false) // Foreign key to project
+    @JsonBackReference
+    private ProjectModel project;
 
     // Constructor
-    public TodoModel(String description, ProjectModel project) {
+    public TodoModel(String description) {
         this.id = UUID.randomUUID(); // Generate unique UUID
         this.description = description;
         this.status = "pending"; // Default status to pending
         this.createdDate = LocalDateTime.now(); // Set creation date to current time
-        this.updatedDate = LocalDateTime.now(); // Set updated date to current time
-        this.project = project;
+        this.updatedDate = LocalDateTime.now();
     }
 
     // Default constructor (required by JPA)

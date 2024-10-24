@@ -45,9 +45,9 @@ https://github.com/abhijeet-Bh/hatio-assignment.git
 
 ### 2. Build the application
 
-   ```shell
-   ./mvnn clean install
-   ```
+```shell
+./mvnn clean install
+```
 
 ### 3. Running the Application
 
@@ -55,14 +55,7 @@ You can run the application using `Maven` or `Docker`.
 
 #### A. Running with Maven:
 
-1. **Run the Spring Boot application:**
-
-   ```shell
-   ./mvnw spring-boot:run
-   ```
-
-   The application will start on `http://localhost:8080`.
-
+1. **Download & Install PostgreSQL database**
 
 2. **Connect to the PostgreSQL database:**
 
@@ -74,11 +67,19 @@ You can run the application using `Maven` or `Docker`.
    spring.datasource.username=<your-db-usename>
    spring.datasource.password=<your-password>
    spring.datasource.driver-class-name=org.postgresql.Driver
-   
+
    ## Hibernate (JPA) Properties
    spring.jpa.hibernate.ddl-auto=update
    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
    ```
+
+3. **Run the Spring Boot application:**
+
+   ```shell
+   ./mvnw spring-boot:run
+   ```
+
+   The application will start on `http://localhost:8080`.
 
 ---
 
@@ -99,7 +100,7 @@ You can run the application using `Maven` or `Docker`.
    SPRING_JPA_HIBERNATE_DDL_AUTO=update
    ```
 
-   > *Now, you can run below command to run `Todo` app :)*
+   > _Now, you can run below command to run `Todo` app :)_
 
    ```bash
    docker-compose up --build
@@ -118,8 +119,33 @@ for managing employees, leave requests, payroll, performance reviews, and attend
 
 These endpoints handle public-related operations such as `health-check` and `login`.
 
-| HTTP Method | Endpoint                 | Description                                                     | Access Role |
-|-------------|--------------------------|-----------------------------------------------------------------|-------------|
-| **GET**     | `/api/v1/healthz`        | Check running status of the backend                             | OPEN        |
+| HTTP Method | Endpoint          | Description                         | Access Role |
+| ----------- | ----------------- | ----------------------------------- | ----------- |
+| **GET**     | `/api/v1/healthz` | Check running status of the backend | OPEN        |
+
+### **2. Projects Endpoints**
+
+These endpoints handle project-related operations for managing the project.
+
+| HTTP Method | Endpoint                | Description          | Access Role |
+| ----------- | ----------------------- | -------------------- | ----------- |
+| **GET**     | `/api/v1/projects`      | Get All Projects     | OPEN        |
+| **POST**    | `/api/v1/projects`      | Create New Project   | OPEN        |
+| **PUT**     | `/api/v1/projects`      | Update New Project   | OPEN        |
+| **GET**     | `/api/v1/projects/{id}` | Get Project by Id    | OPEN        |
+| **DELETE**  | `/api/v1/projects/{id}` | Delete Project by Id | OPEN        |
+
+### **3. Todo Endpoints**
+
+These endpoints handle project-related operations for managing the project.
+
+| HTTP Method | Endpoint                                                 | Description                                | Access Role |
+|-------------|----------------------------------------------------------|--------------------------------------------| ----------- |
+| **GET**     | `/api/v1/projects/{project-Id}/todos`                    | Get All Todos of the particular project    | OPEN        |
+| **POST**    | `/api/v1/projects/{project-Id}/todos`                    | Create New todo for the particular project | OPEN        |
+| **PATCH**   | `/api/v1/projects/{project-Id}/todos/{todo-Id}/complete` | Mark a todo complete                       | OPEN        |
+| **PATCH**   | `/api/v1/projects/{project-Id}/todos/{todo-Id}/pending`  | Mark a todo pending                        | OPEN        |
+| **PUT**     | `/api/v1/projects/{project-Id}/todos/{todo-Id}`          | Update Todo                                | OPEN        |
+| **DELETE**  | `/api/v1/projects/{project-Id}/todos/{todo-Id}`          | Delete Todo by Id                          | OPEN        |
 
 Thanks :)

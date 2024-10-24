@@ -1,5 +1,6 @@
 package com.hatio.todo.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 
@@ -23,6 +24,7 @@ public class ProjectModel {
     private LocalDateTime createdDate;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "project")
+    @JsonManagedReference
     private List<TodoModel> todos = new ArrayList<>(); // Initialize the todos list
 
     // Constructor
@@ -68,5 +70,10 @@ public class ProjectModel {
 
     public void setTodos(List<TodoModel> todos) {
         this.todos = todos;
+    }
+
+    public void addTodo(TodoModel todo) {
+        this.todos.add(todo);
+        todo.setProject(this);
     }
 }
