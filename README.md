@@ -119,44 +119,47 @@ for managing projects, todos, exporting project-summary as gist or downloading i
 
 These endpoints handle `public-related` operations such as `health-check` and `login`.
 
-| HTTP Method | Endpoint          | Description                         | Access Role |
-| ----------- | ----------------- | ----------------------------------- | ----------- |
-| **GET**     | `/api/v1/healthz` | Check running status of the backend | OPEN        |
+| HTTP Method | Endpoint              | Description                              | Access Role |
+|-------------|-----------------------|------------------------------------------|-------------|
+| **GET**     | `/api/v1/healthz`     | Check running status of the backend      | OPEN        |
+| **POST**    | `/api/v1/auth/signup` | Create New User Account                  | OPEN        |
+| **POST**    | `/api/v1/auth/login`  | CLogin User with `username` & `password` | OPEN        |
 
 ### **2. Projects Endpoints**
 
 These endpoints handle `project-related` operations for managing the project.
 
-| HTTP Method | Endpoint                | Description          | Access Role |
-| ----------- | ----------------------- | -------------------- | ----------- |
-| **GET**     | `/api/v1/projects`      | Get All Projects     | OPEN        |
-| **POST**    | `/api/v1/projects`      | Create New Project   | OPEN        |
-| **PUT**     | `/api/v1/projects`      | Update New Project   | OPEN        |
-| **GET**     | `/api/v1/projects/{id}` | Get Project by Id    | OPEN        |
-| **DELETE**  | `/api/v1/projects/{id}` | Delete Project by Id | OPEN        |
+| HTTP Method | Endpoint                | Description          | Access Role   |
+|-------------|-------------------------|----------------------|---------------|
+| **GET**     | `/api/v1/projects`      | Get All Projects     | Authenticated |
+| **POST**    | `/api/v1/projects`      | Create New Project   | Authenticated |
+| **PUT**     | `/api/v1/projects`      | Update New Project   | Authenticated |
+| **GET**     | `/api/v1/projects/{id}` | Get Project by Id    | Authenticated |
+| **DELETE**  | `/api/v1/projects/{id}` | Delete Project by Id | Authenticated |
 
 ### **3. Todo Endpoints**
 
 These endpoints handle `Todo-related` operations for managing the project.
 
-| HTTP Method | Endpoint                                                 | Description                                | Access Role |
-| ----------- | -------------------------------------------------------- | ------------------------------------------ | ----------- |
-| **GET**     | `/api/v1/projects/{project-Id}/todos`                    | Get All Todos of the particular project    | OPEN        |
-| **POST**    | `/api/v1/projects/{project-Id}/todos`                    | Create New todo for the particular project | OPEN        |
-| **PATCH**   | `/api/v1/projects/{project-Id}/todos/{todo-Id}/complete` | Mark a todo complete                       | OPEN        |
-| **PATCH**   | `/api/v1/projects/{project-Id}/todos/{todo-Id}/pending`  | Mark a todo pending                        | OPEN        |
-| **PUT**     | `/api/v1/projects/{project-Id}/todos/{todo-Id}`          | Update Todo                                | OPEN        |
-| **DELETE**  | `/api/v1/projects/{project-Id}/todos/{todo-Id}`          | Delete Todo by Id                          | OPEN        |
+| HTTP Method | Endpoint                                                 | Description                                | Access Role   |
+|-------------|----------------------------------------------------------|--------------------------------------------|---------------|
+| **GET**     | `/api/v1/projects/{project-Id}/todos`                    | Get All Todos of the particular project    | Authenticated |
+| **POST**    | `/api/v1/projects/{project-Id}/todos`                    | Create New todo for the particular project | Authenticated |
+| **PATCH**   | `/api/v1/projects/{project-Id}/todos/{todo-Id}/complete` | Mark a todo complete                       | Authenticated |
+| **PATCH**   | `/api/v1/projects/{project-Id}/todos/{todo-Id}/pending`  | Mark a todo pending                        | Authenticated |
+| **PUT**     | `/api/v1/projects/{project-Id}/todos/{todo-Id}`          | Update Todo                                | Authenticated |
+| **DELETE**  | `/api/v1/projects/{project-Id}/todos/{todo-Id}`          | Delete Todo by Id                          | Authenticated |
 
 ### **4. Gists Endpoints**
 
 These endpoints handle `gist-related` operations for downloading and exporting the the `project-summary`.
 
-| HTTP Method | Endpoint                                                           | Description                          | Access Role |
-| ----------- | ------------------------------------------------------------------ | ------------------------------------ | ----------- |
-| **GET**     | `/api/v1/projects/{project-Id}/download-summary`                   | Download project-summary             | OPEN        |
-| **POST**    | `/api/v1/projects/{project-Id}/export-gist?githubToken=your-token` | Export Project Summary to giHub gist | OPEN        |
+| HTTP Method | Endpoint                                                           | Description                          | Access Role   |
+|-------------|--------------------------------------------------------------------|--------------------------------------|---------------|
+| **GET**     | `/api/v1/projects/{project-Id}/download-summary`                   | Download project-summary             | Authenticated |
+| **POST**    | `/api/v1/projects/{project-Id}/export-gist?githubToken=your-token` | Export Project Summary to giHub gist | Authenticated |
 
-> Gist that i created while developing this project is [here](https://gist.github.com/abhijeet-Bh/8caffb872bcecb51b6115bb765ababb7)
+> Gist that i created while developing this project
+> is [here](https://gist.github.com/abhijeet-Bh/8caffb872bcecb51b6115bb765ababb7)
 
 Thanks :)
