@@ -2,7 +2,7 @@ package com.hatio.todo.utils;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ErrorResponse extends com.hrelix.app.utils.ApiResponse {
+public class ErrorResponse extends ApiResponse {
 
     @JsonProperty("data")
     private String message;

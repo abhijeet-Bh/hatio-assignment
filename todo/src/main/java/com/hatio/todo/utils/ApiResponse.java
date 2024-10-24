@@ -1,4 +1,4 @@
-package com.hrelix.app.utils;
+package com.hatio.todo.utils;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
