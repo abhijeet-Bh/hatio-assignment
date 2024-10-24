@@ -113,11 +113,11 @@ This command will start the Spring Boot application and PostgreSQL database in D
 ### Endpoints
 
 Here’s a list of all **API endpoints** for the **Todo App Backend**. These endpoints cover the main functionalities
-for managing employees, leave requests, payroll, performance reviews, and attendance tracking.
+for managing projects, todos, exporting project-summary as gist or downloading it.
 
 ### **1. Public Endpoints**
 
-These endpoints handle public-related operations such as `health-check` and `login`.
+These endpoints handle `public-related` operations such as `health-check` and `login`.
 
 | HTTP Method | Endpoint          | Description                         | Access Role |
 | ----------- | ----------------- | ----------------------------------- | ----------- |
@@ -125,7 +125,7 @@ These endpoints handle public-related operations such as `health-check` and `log
 
 ### **2. Projects Endpoints**
 
-These endpoints handle project-related operations for managing the project.
+These endpoints handle `project-related` operations for managing the project.
 
 | HTTP Method | Endpoint                | Description          | Access Role |
 | ----------- | ----------------------- | -------------------- | ----------- |
@@ -137,10 +137,10 @@ These endpoints handle project-related operations for managing the project.
 
 ### **3. Todo Endpoints**
 
-These endpoints handle project-related operations for managing the project.
+These endpoints handle `Todo-related` operations for managing the project.
 
 | HTTP Method | Endpoint                                                 | Description                                | Access Role |
-|-------------|----------------------------------------------------------|--------------------------------------------| ----------- |
+| ----------- | -------------------------------------------------------- | ------------------------------------------ | ----------- |
 | **GET**     | `/api/v1/projects/{project-Id}/todos`                    | Get All Todos of the particular project    | OPEN        |
 | **POST**    | `/api/v1/projects/{project-Id}/todos`                    | Create New todo for the particular project | OPEN        |
 | **PATCH**   | `/api/v1/projects/{project-Id}/todos/{todo-Id}/complete` | Mark a todo complete                       | OPEN        |
@@ -150,14 +150,13 @@ These endpoints handle project-related operations for managing the project.
 
 ### **4. Gists Endpoints**
 
-These endpoints handle project-related operations for managing the project.
+These endpoints handle `gist-related` operations for downloading and exporting the the `project-summary`.
 
 | HTTP Method | Endpoint                                                           | Description                          | Access Role |
-|-------------|--------------------------------------------------------------------|--------------------------------------|-------------|
+| ----------- | ------------------------------------------------------------------ | ------------------------------------ | ----------- |
 | **GET**     | `/api/v1/projects/{project-Id}/download-summary`                   | Download project-summary             | OPEN        |
 | **POST**    | `/api/v1/projects/{project-Id}/export-gist?githubToken=your-token` | Export Project Summary to giHub gist | OPEN        |
 
-> Gist that i created while developing this project is here
-> https://gist.github.com/abhijeet-Bh/8caffb872bcecb51b6115bb765ababb7
+> Gist that i created while developing this project is [here](https://gist.github.com/abhijeet-Bh/8caffb872bcecb51b6115bb765ababb7)
 
 Thanks :)
