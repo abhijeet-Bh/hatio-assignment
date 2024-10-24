@@ -148,4 +148,16 @@ These endpoints handle project-related operations for managing the project.
 | **PUT**     | `/api/v1/projects/{project-Id}/todos/{todo-Id}`          | Update Todo                                | OPEN        |
 | **DELETE**  | `/api/v1/projects/{project-Id}/todos/{todo-Id}`          | Delete Todo by Id                          | OPEN        |
 
+### **4. Gists Endpoints**
+
+These endpoints handle project-related operations for managing the project.
+
+| HTTP Method | Endpoint                                                           | Description                          | Access Role |
+|-------------|--------------------------------------------------------------------|--------------------------------------|-------------|
+| **GET**     | `/api/v1/projects/{project-Id}/download-summary`                   | Download project-summary             | OPEN        |
+| **POST**    | `/api/v1/projects/{project-Id}/export-gist?githubToken=your-token` | Export Project Summary to giHub gist | OPEN        |
+
+> Gist that i created while developing this project is here
+> https://gist.github.com/abhijeet-Bh/8caffb872bcecb51b6115bb765ababb7
+
 Thanks :)
